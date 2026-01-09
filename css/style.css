@@ -13,3 +13,13 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Para Chrome, Safari y Opera */
   }
+
+  /* Mostrar el modal cuando tiene la clase .open */
+#search-modal.open {
+  display: block;
+}
+
+/* Evitar scroll de la página cuando el buscador está abierto */
+body.search-open {
+  overflow: hidden;
+}

@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <!-- Botón de búsqueda -->
+      <!-- Botón de búsqueda (desktop) -->
       <div class="flex items-center">
         <button
           id="search-button"
@@ -80,7 +80,7 @@
           </div>
         </div>
 
-        <!-- Botones buscar -->
+        <!-- Botón buscar mobile -->
         <button
           id="mobile-search-button"
           class="p-2 rounded-md hover:bg-gray-300 transition-colors border border-black flex gap-3 items-center"
@@ -89,7 +89,7 @@
         </button>
       </div>
 
-      <!-- nabvar inferior -->
+      <!-- navbar inferior -->
       <div class="py-2 pl-3">
         <div class="flex items-start">
           <i class="fas fa-phone-alt mt-1 mr-1 text-black"></i>
@@ -105,7 +105,7 @@
     </div>
   </div>
 
-  <!-- Menú móvil desplegable - Lado derecho -->
+  <!-- Menú móvil desplegable - Lado izquierdo -->
   <div
     id="mobile-menu"
     class="fixed top-0 left-0 h-full w-80 bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
@@ -120,7 +120,7 @@
     <!-- Contenido del menú -->
     <div class="px-6 pb-8">
       <!-- Enlaces adicionales -->
-      <div class="">
+      <div>
         <div class="flex flex-wrap justify-start gap-2">
           <!-- Enlaces principales -->
           <a
@@ -166,7 +166,7 @@
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_nexus_b.html"
             id="menu"
-            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duración-200 text-sm md:text-base"
           >
             Cisco Nexus
           </a>
@@ -174,7 +174,7 @@
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_router_b.html"
             id="menu"
-            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duración-200 text-sm md:text-base"
           >
             Routers
           </a>
@@ -183,7 +183,7 @@
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_telefonos_b.html"
             id="menu"
-            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duración-200 text-sm md:text-base"
           >
             Teléfonos Cisco
           </a>
@@ -191,7 +191,7 @@
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_modulo_transceiver_fibra_b.html"
             id="menu2"
-            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duración-200 text-sm md:text-base"
           >
             Módulo/Transceiver de Fibra
           </a>
@@ -199,7 +199,7 @@
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_accesorios_b.html"
             id="menu"
-            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duración-200 text-sm md:text-base"
           >
             Accesorios
           </a>
@@ -207,7 +207,7 @@
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_switch_industrial_b.html"
             id="menu"
-            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duración-200 text-sm md:text-base"
           >
             Switch Industrial
           </a>
@@ -215,7 +215,7 @@
       </div>
 
       <!-- Lista de precios (desplegable) -->
-      <div class="">
+      <div>
         <details class="group">
           <summary
             class="flex justify-between items-center cursor-pointer list-none py-3 border-b"
@@ -419,7 +419,7 @@
       </div>
 
       <!-- Marcas (desplegable) -->
-      <div class="">
+      <div>
         <details class="group">
           <summary
             class="flex justify-between items-center cursor-pointer list-none py-3 border-b"
@@ -711,53 +711,53 @@
   ></div>
 </nav>
 
-<!-- Modal de Búsqueda -->
+<!-- Modal de Búsqueda (mismo diseño en todos los dispositivos) -->
 <section
   id="search-modal"
-  class="fixed top-0 left-0 right-0 bottom-0 h-screen w-full px-5 pt-7 anim none z-50"
+  class="fixed inset-0 z-50 hidden"
   style="background-color: rgba(0, 0, 0, 0.575)"
 >
-  <div class="max-w-[600px] mx-auto flex gap-2 justify-between">
-    <form
-      name="form1"
-      method="get"
-      action="https://www.ds3comunicaciones.com/find.html"
-      class="mx-auto flex items-center justify-between px-1 border w-full rounded-md bg-white"
-      enctype="application/x-www-form-urlencoded"
-    >
-      <div class="flex items-center w-full">
-        <i class="fa-solid fa-magnifying-glass ps-2 text-gray-500"></i>
-        <input
-          name="q"
-          type="text"
-          class="outline-none px-3 py-3 w-full"
-          placeholder="Buscar..."
-          required
-        />
-      </div>
-      <input
-        type="hidden"
-        name="cx"
-        value="partner-pub-9265252540298851:f2549i3fi60"
-      />
-      <input type="hidden" name="cof" value="FORID:10" />
-      <input type="hidden" name="ie" value="ISO-8859-1" />
-      <div
-        class="cursor-pointer px-3 py-1 rounded-md text-sm relative flex items-center bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+  <div class="w-full flex justify-center mt-4 px-4">
+    <div class="w-full max-w-3xl flex items-start gap-2">
+      <form
+        name="form1"
+        method="get"
+        action="https://www.ds3comunicaciones.com/find.html"
+        class="flex items-center justify-between px-2 border rounded-md bg-white w-full shadow-lg"
+        enctype="application/x-www-form-urlencoded"
       >
+        <div class="flex items-center w-full">
+          <i class="fa-solid fa-magnifying-glass ps-2 text-gray-500"></i>
+          <input
+            name="q"
+            type="text"
+            class="outline-none px-3 py-3 w-full text-sm md:text-base"
+            placeholder="Buscar..."
+            required
+          />
+        </div>
         <input
-          name="sa"
-          type="submit"
-          value="Buscar"
-          class="cursor-pointer bg-transparent border-none text-white"
+          type="hidden"
+          name="cx"
+          value="partner-pub-9265252540298851:f2549i3fi60"
         />
-        <i class="fa-solid fa-caret-right ml-1"></i>
-      </div>
-    </form>
-    <div class="mx-auto text-end">
+        <input type="hidden" name="cof" value="FORID:10" />
+        <input type="hidden" name="ie" value="ISO-8859-1" />
+        <button
+          type="submit"
+          name="sa"
+          value="Buscar"
+          class="cursor-pointer px-4 py-2 rounded-md text-sm md:text-base flex items-center bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+        >
+          Buscar
+          <i class="fa-solid fa-caret-right ml-1 text-xs md:text-sm"></i>
+        </button>
+      </form>
+
+      <!-- Botón cerrar modal -->
       <button
         id="close-search"
-        class="cursor-pointer text-white text-2xl flex items-center justify-center w-[35px] h-[42px] rounded-md font-medium hover:bg-gray-700 transition-colors"
+        class="cursor-pointer text-white text-2xl flex items-center justify-center w-[38px] h-[44px] rounded-md font-medium hover:bg-gray-700 transition-colors"
       >
         <i class="fa-solid fa-xmark"></i>
       </button>
