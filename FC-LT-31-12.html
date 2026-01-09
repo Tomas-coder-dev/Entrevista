@@ -152,21 +152,50 @@
                     </div>
                 </aside>
 
+                <!-- CONTENIDO PRINCIPAL -->
                 <div class="w-full lg:w-2/4 bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6">
                     <div class="flex flex-col md:flex-row gap-6 items-stretch">
 
+                        <!-- CARRUSEL PRINCIPAL -->
                         <div class="w-full md:w-2/5 flex flex-col items-center justify-center">
                             <div
-                                class="w-full max-w-[260px] mx-auto bg-white rounded-2xl border border-gray-100 mb-2 overflow-hidden p-3 relative group shadow-sm">
-                                <img id="img_main" src="images/OFC-LT-31-12-front/OFC-LT-31-12-front.jpg"
-                                    alt="Cable Datatronix FC-LT-31-12"
-                                    class="w-full h-56 object-contain cursor-zoom-in transition-transform duration-300 group-hover:scale-105"
-                                    onclick="viewImage(this.src)"
-                                    onerror="this.src='https://via.placeholder.com/260x260?text=Sin+Imagen'">
+                                class="w-full max-w-[260px] mx-auto bg-white rounded-2xl border border-gray-100 overflow-hidden p-3 relative shadow-sm">
+                                <img id="img_main"
+                                     src="images/OFC-LT-31-12-front/OFC-LT-31-12-front.jpg"
+                                     alt="Cable Datatronix FC-LT-31-12"
+                                     class="w-full h-56 object-contain cursor-zoom-in transition-transform duration-300"
+                                     onclick="viewImage(this.src)"
+                                     onerror="this.src='https://via.placeholder.com/260x260?text=Sin+Imagen'">
                             </div>
-                            <p class="text-xs text-gray-400 mb-1 text-center">Clic en la imagen para ampliar</p>
+                            <p class="text-xs text-gray-400 mt-1 mb-2 text-center">Clic en la imagen para ampliar</p>
+
+                            <!-- MINIATURAS DEL CARRUSEL -->
+                            <div class="flex gap-2 justify-center">
+                                <!-- Ajusta las rutas de estas 3 miniaturas a las que tengas -->
+                                <button class="w-14 h-14 border rounded-md overflow-hidden bg-white hover:ring-2 hover:ring-blue-500 transition"
+                                        onclick="changeMainImage('images/OFC-LT-31-12-front/OFC-LT-31-12-front.jpg')">
+                                    <img src="images/OFC-LT-31-12-front/OFC-LT-31-12-front.jpg"
+                                         alt="Vista 1"
+                                         class="w-full h-full object-contain">
+                                </button>
+                                <button class="w-14 h-14 border rounded-md overflow-hidden bg-white hover:ring-2 hover:ring-blue-500 transition"
+                                        onclick="changeMainImage('images/Cable.jpg')">
+                                    <img src="images/Cable.jpg"
+                                         alt="Vista 2"
+                                         class="w-full h-full object-contain"
+                                         onerror="this.parentElement.classList.add('hidden')">
+                                </button>
+                                <button class="w-14 h-14 border rounded-md overflow-hidden bg-white hover:ring-2 hover:ring-blue-500 transition"
+                                        onclick="changeMainImage('images/Caja.jpg')">
+                                    <img src="images/Caja.jpg"
+                                         alt="Vista 3"
+                                         class="w-full h-full object-contain"
+                                         onerror="this.parentElement.classList.add('hidden')">
+                                </button>
+                            </div>
                         </div>
 
+                        <!-- INFO DEL PRODUCTO -->
                         <div class="w-full md:w-3/5 flex flex-col gap-3">
                             <h1
                                 class="text-xl lg:text-2xl font-extrabold text-[#0D274D] leading-snug">
@@ -231,18 +260,26 @@
                                 </p>
                             </div>
 
+                            <!-- DESCARGAS -->
                             <div class="border-t pt-3 space-y-2">
                                 <h3 class="text-sm font-semibold text-gray-800 flex items-center gap-2">
                                     <i class="fas fa-file-arrow-down text-blue-600"></i> Descargas
                                 </h3>
                                 <div id="downloads-container" class="flex flex-wrap gap-2 text-sm">
+                                    <!-- Botón directo al PDF de la carpeta -->
+                                    <a href="files/FC-LT-31-12/FC-LT-31-12.pdf" target="_blank"
+                                       class="inline-flex items-center gap-2 text-xs sm:text-sm px-4 py-1.5 rounded-full border bg-gray-50 hover:bg-gray-100 text-blue-700">
+                                        <i class="fas fa-download"></i> Ficha Técnica
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- PESTAÑAS PRODUCTO / IMÁGENES + ESPECIFICACIONES + SIMILARES -->
                     <div class="mt-8 space-y-8">
 
+                        <!-- PRODUCTO / IMÁGENES -->
                         <section class="bg-white rounded-2xl border border-gray-200 p-4 md:p-5 shadow-sm">
                             <div class="w-full flex justify-center mb-3">
                                 <div
@@ -259,6 +296,7 @@
                             </div>
                             <hr class="mb-4">
 
+                            <!-- CONTENIDO PESTAÑA PRODUCTO -->
                             <div id="tab-content-producto" class="space-y-2">
                                 <details class="mb-2" open>
                                     <summary class="accordion-header">
@@ -293,14 +331,39 @@
                                 </details>
                             </div>
 
+                            <!-- CONTENIDO PESTAÑA IMÁGENES (GRID) -->
                             <div id="tab-content-imagenes" class="hidden">
                                 <div id="images-grid"
                                     class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                    <!-- se llena por JS con todas las imágenes de la carpeta -->
+                                    <!-- Miniaturas fijas, puedes añadir más -->
+                                    <button type="button"
+                                            class="border border-gray-200 rounded-xl overflow-hidden bg-white hover:shadow-sm transition"
+                                            onclick="viewImage('images/OFC-LT-31-12-front/OFC-LT-31-12-front.jpg')">
+                                        <img src="images/OFC-LT-31-12-front/OFC-LT-31-12-front.jpg"
+                                             alt="Vista frontal"
+                                             class="w-full h-28 object-contain p-2">
+                                    </button>
+                                    <button type="button"
+                                            class="border border-gray-200 rounded-xl overflow-hidden bg-white hover:shadow-sm transition"
+                                            onclick="viewImage('images/Cable.jpg')">
+                                        <img src="images/Cable.jpg"
+                                             alt="Cable"
+                                             class="w-full h-28 object-contain p-2"
+                                             onerror="this.parentElement.classList.add('hidden')">
+                                    </button>
+                                    <button type="button"
+                                            class="border border-gray-200 rounded-xl overflow-hidden bg-white hover:shadow-sm transition"
+                                            onclick="viewImage('images/Caja.jpg')">
+                                        <img src="images/Caja.jpg"
+                                             alt="Caja"
+                                             class="w-full h-28 object-contain p-2"
+                                             onerror="this.parentElement.classList.add('hidden')">
+                                    </button>
                                 </div>
                             </div>
                         </section>
 
+                        <!-- ESPECIFICACIONES TÉCNICAS -->
                         <section>
                             <h3
                                 class="text-lg font-bold text-[#0D274D] mb-4 border-b border-gray-200 pb-2">
@@ -397,6 +460,7 @@
                             </div>
                         </section>
 
+                        <!-- PRODUCTOS SIMILARES -->
                         <section class="mt-4">
                             <h3
                                 class="text-lg font-bold text-[#0D274D] mb-4 border-b border-gray-200 pb-2">
@@ -410,7 +474,8 @@
                                         class="w-20 h-20 rounded-xl border border-gray-200 flex items-center justify-center bg-gray-50">
                                         <img src="images/OFC-LT-31-24-front/OFC-LT-31-24-front.jpg"
                                             alt="Cable OM3 24 hilos Datatronix"
-                                            class="w-14 h-14 object-contain">
+                                            class="w-14 h-14 object-contain"
+                                            onerror="this.src='https://via.placeholder.com/60x60?text=No+img'">
                                     </div>
                                     <div class="flex-1">
                                         <p class="text-sm font-semibold text-[#0D274D] mb-1">
@@ -430,7 +495,8 @@
                                         class="w-20 h-20 rounded-xl border border-gray-200 flex items-center justify-center bg-gray-50">
                                         <img src="images/OFC-LT-21-12-front/OFC-LT-21-12-front.jpg"
                                             alt="Cable OM2 12 hilos Datatronix"
-                                            class="w-14 h-14 object-contain">
+                                            class="w-14 h-14 object-contain"
+                                            onerror="this.src='https://via.placeholder.com/60x60?text=No+img'">
                                     </div>
                                     <div class="flex-1">
                                         <p class="text-sm font-semibold text-[#0D274D] mb-1">
@@ -488,6 +554,7 @@
                     })
                     .catch(e => console.error(e));
             }
+
             loadComponent("sidebar-marcas", "components/sidebar-marcas.html");
             loadComponent("sidebar-precios", "components/sidebar-precios.html");
             loadComponent("footer-container", "components/footer.html");
@@ -516,85 +583,12 @@
                     contentProducto.classList.add('hidden');
                 });
             }
-
-            const downloadsContainer = document.getElementById('downloads-container');
-            if (downloadsContainer) {
-                const basePath = 'files/FC-LT-31-12/';
-                fetch(basePath)
-                    .then(resp => resp.text())
-                    .then(html => {
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html');
-                        const links = Array.from(doc.querySelectorAll('a'))
-                            .map(a => a.getAttribute('href'))
-                            .filter(href => href && href.toLowerCase().endsWith('.pdf'));
-                        if (links.length === 0) {
-                            downloadsContainer.innerHTML =
-                                '<p class="text-xs text-gray-500">No hay archivos disponibles para descarga.</p>';
-                            return;
-                        }
-                        links.forEach(href => {
-                            const name = href.split('/').pop();
-                            const label = name.replace(/_/g, ' ').replace(/\.pdf$/i, '');
-                            let pretty = label;
-                            if (label.toLowerCase() === 'fc-lt-31-12') pretty = 'Ficha Técnica';
-                            const fullPath = href.startsWith('http') ? href : basePath + name;
-                            const a = document.createElement('a');
-                            a.href = fullPath;
-                            a.target = '_blank';
-                            a.className =
-                                'inline-flex items-center gap-2 text-xs sm:text-sm px-4 py-1.5 rounded-full border bg-gray-50 hover:bg-gray-100 text-blue-700';
-                            a.innerHTML = '<i class="fas fa-download"></i>' + pretty;
-                            downloadsContainer.appendChild(a);
-                        });
-                    })
-                    .catch(() => {
-                        downloadsContainer.innerHTML =
-                            '<p class="text-xs text-gray-500">No se pudieron cargar las descargas.</p>';
-                    });
-            }
-
-            const imagesGrid = document.getElementById('images-grid');
-            if (imagesGrid) {
-                const imgBasePath = 'images/OFC-LT-31-12-front/';
-                fetch(imgBasePath)
-                    .then(resp => resp.text())
-                    .then(html => {
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html');
-                        const imgs = Array.from(doc.querySelectorAll('a'))
-                            .map(a => a.getAttribute('href'))
-                            .filter(href =>
-                                href &&
-                                (href.toLowerCase().endsWith('.jpg') ||
-                                    href.toLowerCase().endsWith('.jpeg') ||
-                                    href.toLowerCase().endsWith('.png') ||
-                                    href.toLowerCase().endsWith('.webp'))
-                            );
-                        if (imgs.length === 0) {
-                            imagesGrid.innerHTML =
-                                '<p class="text-xs text-gray-500">No hay imágenes adicionales disponibles.</p>';
-                            return;
-                        }
-                        imgs.forEach(href => {
-                            const full = href.startsWith('http') ? href : imgBasePath + href.split('/').pop();
-                            const btn = document.createElement('button');
-                            btn.type = 'button';
-                            btn.className =
-                                'border border-gray-200 rounded-xl overflow-hidden bg-white hover:shadow-sm transition';
-                            btn.onclick = () => viewImage(full);
-                            btn.innerHTML =
-                                '<img src="' + full +
-                                '" class="w-full h-28 object-contain p-2" alt="Imagen del producto" />';
-                            imagesGrid.appendChild(btn);
-                        });
-                    })
-                    .catch(() => {
-                        imagesGrid.innerHTML =
-                            '<p class="text-xs text-gray-500">No se pudieron cargar las imágenes.</p>';
-                    });
-            }
         });
+
+        function changeMainImage(src) {
+            const img = document.getElementById('img_main');
+            img.src = src;
+        }
 
         function viewImage(src) {
             document.getElementById('modal-image').src = src;
