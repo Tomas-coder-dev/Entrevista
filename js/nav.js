@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             initializeMobileMenu();
             initializeSearchModal();
             addDynamicStyles();
+            setProductBrandLogo(); // NUEVO: coloca el logo de la marca del producto
         })
         .catch(error => console.error('Error loading navbar:', error));
 });
@@ -174,4 +175,33 @@ function addDynamicStyles() {
         }
     `;
     document.head.appendChild(style);
+}
+
+/**
+ * Coloca el logo de la marca del producto al lado del logo de la empresa
+ * Lee los atributos del body:
+ *   data-brand-logo="./images/datatronix.png"
+ *   data-brand-name="Datatronix"
+ */
+function setProductBrandLogo() {
+    const body = document.body;
+    const logoSrc = body.getAttribute('data-brand-logo');
+    const logoAlt = body.getAttribute('data-brand-name') || 'Marca del producto';
+
+    if (!logoSrc) return; // si la página no define marca, no mostramos nada
+
+    const desktopLogo = document.getElementById('product-brand-logo-desktop');
+    const mobileLogo = document.getElementById('product-brand-logo-mobile');
+
+    if (desktopLogo) {
+        desktopLogo.src = logoSrc;
+        desktopLogo.alt = logoAlt;
+        desktopLogo.classList.remove('hidden');
+    }
+
+    if (mobileLogo) {
+        mobileLogo.src = logoSrc;
+        mobileLogo.alt = logoAlt;
+        mobileLogo.classList.remove('hidden');
+    }
 }
