@@ -1,18 +1,12 @@
-<!-- components/navbar.html -->
 <nav class="bg-white w-full shadow-md border">
   <div class="container mx-auto px-4">
-    <!-- Desktop Navbar -->
     <div class="hidden lg:flex justify-between items-center py-4">
-      <!-- Izquierda: DS3 + MARCA PRODUCTO (Datatronix, etc.) -->
       <div class="flex items-center gap-6">
-        <!-- Logo empresa DS3 -->
         <img
           src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
           alt="DS3 Comunicaciones"
           class="h-12"
         />
-
-        <!-- Logo marca producto (se rellena por JS según la página) -->
         <img
           id="product-brand-logo-desktop"
           src=""
@@ -21,7 +15,6 @@
         />
       </div>
 
-      <!-- Centro: Info de contacto + Cisco -->
       <div class="flex items-center gap-6 text-black">
         <div class="flex items-center">
           <i class="fas fa-phone-alt mr-2 text-black"></i>
@@ -45,7 +38,6 @@
           <i class="fas fa-map-marker-alt mr-2 text-black"></i>
           <span class="text-sm font-bold">Lima, PERÚ</span>
         </div>
-        <!-- Logo Cisco fijo -->
         <div>
           <img
             src="https://www.ds3comunicaciones.com/cisco/images/cisco-gif.gif"
@@ -55,7 +47,6 @@
         </div>
       </div>
 
-      <!-- Derecha: botón de búsqueda (desktop) -->
       <div class="flex items-center">
         <button
           id="search-button"
@@ -66,13 +57,9 @@
       </div>
     </div>
 
-    <!-- Mobile Navbar -->
     <div class="lg:hidden flex flex-col gap-2">
-      <!-- navbar superior -->
       <div class="flex justify-between items-center py-2">
-        <!-- lado izquierdo -->
         <div class="flex items-center gap-2 min-w-0">
-          <!-- botón hamburguesa -->
           <button
             id="mobile-menu-button"
             class="p-2 rounded-full hover:bg-gray-300 transition-colors flex-shrink-0"
@@ -80,32 +67,22 @@
             <i class="fas fa-bars text-black"></i>
           </button>
 
-          <!-- Logos en fila: DS3 → Cisco → Marca producto -->
           <div class="flex items-center gap-2 overflow-hidden">
-            <!-- DS3 -->
             <img
               src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
               alt="DS3 Comunicaciones"
               class="h-7 flex-shrink-0"
             />
-            <!-- Cisco -->
-            <img
-              src="http://www.ds3comunicaciones.com/cisco/images/logo-cisco.gif"
-              alt="Cisco"
-              class="h-7 flex-shrink-0"
-            />
-            <!-- Marca producto (Datatronix, etc. se rellena por JS) -->
             <img
               id="product-brand-logo-mobile"
               src=""
               alt=""
               class="h-7 object-contain flex-shrink hidden"
-              style="max-width: 120px;"
+              style="max-width: 140px;"
             />
           </div>
         </div>
 
-        <!-- botón buscar mobile -->
         <button
           id="mobile-search-button"
           class="ml-2 p-2 rounded-md hover:bg-gray-300 transition-colors border border-black flex items-center justify-center flex-shrink-0"
@@ -114,7 +91,6 @@
         </button>
       </div>
 
-      <!-- navbar inferior -->
       <div class="py-2 pl-3">
         <div class="flex items-start">
           <i class="fas fa-phone-alt mt-1 mr-1 text-black"></i>
@@ -130,24 +106,19 @@
     </div>
   </div>
 
-  <!-- Menú móvil desplegable - Lado izquierdo -->
   <div
     id="mobile-menu"
     class="fixed top-0 left-0 h-full w-80 bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
   >
-    <!-- Botón de cerrar -->
     <div class="flex justify-end p-4">
       <button id="close-menu" class="text-gray-500 hover:text-gray-700">
         <i class="fas fa-times text-2xl"></i>
       </button>
     </div>
 
-    <!-- Contenido del menú -->
     <div class="px-6 pb-8">
-      <!-- Enlaces adicionales -->
       <div>
         <div class="flex flex-wrap justify-start gap-2">
-          <!-- Enlaces principales -->
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_b.html"
             id="menu"
@@ -204,7 +175,6 @@
             Routers
           </a>
 
-          <!-- Segunda fila -->
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_telefonos_b.html"
             id="menu"
@@ -216,7 +186,7 @@
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_modulo_transceiver_fibra_b.html"
             id="menu2"
-            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors	duration-200 text-sm md:text-base"
+            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
           >
             Módulo/Transceiver de Fibra
           </a>
@@ -224,7 +194,7 @@
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_accesorios_b.html"
             id="menu"
-            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors	duration-200 text-sm md:text-base"
+            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
           >
             Accesorios
           </a>
@@ -232,14 +202,13 @@
           <a
             href="http://ds3comunicaciones.com/cisco/precios_cisco_switch_industrial_b.html"
             id="menu"
-            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors	duration-200 text-sm md:text-base"
+            class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
           >
             Switch Industrial
           </a>
         </div>
       </div>
 
-      <!-- Lista de precios (desplegable) -->
       <div>
         <details class="group">
           <summary
@@ -252,7 +221,6 @@
           </summary>
           <div class="mt-2">
             <ul class="flex flex-col gap-2">
-              <!-- AMP -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/AMP/precios_amp.html"
@@ -263,7 +231,6 @@
                 </a>
               </li>
 
-              <!-- Amphenol -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/amphenol/precios_amphenol.html"
@@ -274,7 +241,6 @@
                 </a>
               </li>
 
-              <!-- Andrew -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/andrew/precios_andrew.html"
@@ -285,7 +251,6 @@
                 </a>
               </li>
 
-              <!-- APC -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/apc/precios_apc.html"
@@ -296,7 +261,6 @@
                 </a>
               </li>
 
-              <!-- CISCO -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/cisco/precios_cisco.html"
@@ -307,7 +271,6 @@
                 </a>
               </li>
 
-              <!-- D-Link -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/dlink/precios_dlink.html"
@@ -318,7 +281,6 @@
                 </a>
               </li>
 
-              <!-- Dixon -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/dixon/precios_dixon.html"
@@ -329,8 +291,7 @@
                 </a>
               </li>
 
-              <!-- Energit -->
-              <li class="hover-bg-blue-50 rounded transition-colors">
+              <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/Energit/precios_energit.html"
                   target="_blank"
@@ -340,7 +301,6 @@
                 </a>
               </li>
 
-              <!-- Fibra -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/FibreFab/precios_fibrefab.html"
@@ -351,7 +311,6 @@
                 </a>
               </li>
 
-              <!-- HP -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/hp/precios_hp.html"
@@ -362,7 +321,6 @@
                 </a>
               </li>
 
-              <!-- Mikrotik -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/mikrotik/precios_mikrotik.html"
@@ -373,7 +331,6 @@
                 </a>
               </li>
 
-              <!-- Nexxt Solutions -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/nexxt_solutions/precios_nexxt_solutions.html"
@@ -384,7 +341,6 @@
                 </a>
               </li>
 
-              <!-- Panduit -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/panduit/precios_panduit.html"
@@ -395,7 +351,6 @@
                 </a>
               </li>
 
-              <!-- Siemon -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/siemon/precios_siemon.html"
@@ -406,7 +361,6 @@
                 </a>
               </li>
 
-              <!-- Teldor -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/Teldor/precios_teldor.html"
@@ -417,7 +371,6 @@
                 </a>
               </li>
 
-              <!-- TRENDnet -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/trendnet/precios_trendnet.html"
@@ -428,7 +381,6 @@
                 </a>
               </li>
 
-              <!-- Ubiquiti -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/ubiquiti/precios_ubiquiti.html"
@@ -443,7 +395,6 @@
         </details>
       </div>
 
-      <!-- Marcas (desplegable) -->
       <div>
         <details class="group">
           <summary
@@ -455,12 +406,11 @@
             ></i>
           </summary>
           <div class="flex flex-col items-center justify-center gap-2 mt-2">
-            <!-- aquí tus <a> de marcas (Alfa, Airlive, Andrew, AMP, Amphenol, Belden, Cisco, Dahua, D-Link, Dixon, FibreFab, LanPro, L-Com, MikroTik, Panduit, Satra, Siemon, TP-Link, Trendnet, Ubiquiti, etc.) tal como ya los tienes -->
+            <!-- aquí tus <a> de marcas (Alfa, Airlive, Andrew, AMP, Amphenol, Belden, Cisco, Dahua, D-Link, Dixon, FibreFab, LanPro, L-Com, MikroTik, Panduit, Satra, Siemon, TP-Link, Trendnet, Ubiquiti, etc.) -->
           </div>
         </details>
       </div>
 
-      <!-- Sección de contacto -->
       <div class="mt-2">
         <h3 class="text-lg font-bold mb-4 border-b pb-2">Contacto</h3>
         <div class="space-y-3">
@@ -491,14 +441,12 @@
     </div>
   </div>
 
-  <!-- Overlay para menú móvil -->
   <div
     id="menu-overlay"
     class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
   ></div>
 </nav>
 
-<!-- Modal de Búsqueda (mismo diseño en todos los dispositivos) -->
 <section
   id="search-modal"
   class="fixed inset-0 z-50 hidden"
@@ -541,7 +489,6 @@
         </button>
       </form>
 
-      <!-- Botón cerrar modal -->
       <button
         id="close-search"
         class="cursor-pointer text-white text-2xl flex items-center justify-center w-[38px] h-[44px] rounded-md font-medium hover:bg-gray-700 transition-colors"
