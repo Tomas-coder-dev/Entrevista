@@ -22,7 +22,7 @@
       </div>
 
       <!-- Centro: Info de contacto + Cisco -->
-      <div class="flex space-x-8 text-black">
+      <div class="flex items-center gap-6 text-black">
         <div class="flex items-center">
           <i class="fas fa-phone-alt mr-2 text-black"></i>
           <div>
@@ -37,11 +37,11 @@
             <p class="text-sm font-bold">937-514-867</p>
           </div>
         </div>
-        <div class="flex items-center">
+        <div class="hidden xl:flex items-center">
           <i class="fas fa-envelope mr-2 text-black"></i>
           <span class="text-sm font-bold">netperu100@hotmail.com</span>
         </div>
-        <div class="flex items-center">
+        <div class="hidden xl:flex items-center">
           <i class="fas fa-map-marker-alt mr-2 text-black"></i>
           <span class="text-sm font-bold">Lima, PERÚ</span>
         </div>
@@ -71,35 +71,36 @@
       <!-- navbar superior -->
       <div class="flex justify-between items-center py-2">
         <!-- lado izquierdo -->
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 min-w-0">
           <!-- botón hamburguesa -->
           <button
             id="mobile-menu-button"
-            class="p-2 rounded-full hover:bg-gray-300 transition-colors"
+            class="p-2 rounded-full hover:bg-gray-300 transition-colors flex-shrink-0"
           >
             <i class="fas fa-bars text-black"></i>
           </button>
 
           <!-- Logos en fila: DS3 → Cisco → Marca producto -->
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 overflow-hidden">
             <!-- DS3 -->
             <img
               src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
               alt="DS3 Comunicaciones"
-              class="h-8"
+              class="h-7 flex-shrink-0"
             />
             <!-- Cisco -->
             <img
               src="http://www.ds3comunicaciones.com/cisco/images/logo-cisco.gif"
               alt="Cisco"
-              class="h-8"
+              class="h-7 flex-shrink-0"
             />
             <!-- Marca producto (Datatronix, etc. se rellena por JS) -->
             <img
               id="product-brand-logo-mobile"
               src=""
               alt=""
-              class="h-8 object-contain hidden"
+              class="h-7 object-contain flex-shrink hidden"
+              style="max-width: 120px;"
             />
           </div>
         </div>
@@ -107,7 +108,7 @@
         <!-- botón buscar mobile -->
         <button
           id="mobile-search-button"
-          class="p-2 rounded-md hover:bg-gray-300 transition-colors border border-black flex items-center justify-center"
+          class="ml-2 p-2 rounded-md hover:bg-gray-300 transition-colors border border-black flex items-center justify-center flex-shrink-0"
         >
           <i class="fas fa-search text-black text-lg"></i>
         </button>
@@ -329,7 +330,7 @@
               </li>
 
               <!-- Energit -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
+              <li class="hover-bg-blue-50 rounded transition-colors">
                 <a
                   href="https://www.ds3comunicaciones.com/Energit/precios_energit.html"
                   target="_blank"
@@ -454,7 +455,7 @@
             ></i>
           </summary>
           <div class="flex flex-col items-center justify-center gap-2 mt-2">
-            <!-- aquí tus <a> de marcas (Alfa, Airlive, Andrew, AMP, Amphenol, Belden, Cisco, etc.) tal como ya los tienes -->
+            <!-- aquí tus <a> de marcas (Alfa, Airlive, Andrew, AMP, Amphenol, Belden, Cisco, Dahua, D-Link, Dixon, FibreFab, LanPro, L-Com, MikroTik, Panduit, Satra, Siemon, TP-Link, Trendnet, Ubiquiti, etc.) tal como ya los tienes -->
           </div>
         </details>
       </div>
