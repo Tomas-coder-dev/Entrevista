@@ -1,207 +1,132 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Cargar el navbar
-    fetch('./components/navbar.html')
-        .then(response => response.text())
+    // 1. CARGAR EL COMPONENTE NAVBAR
+    fetch('components/navbar.html')
+        .then(response => {
+            if (!response.ok) throw new Error("No se pudo cargar el navbar");
+            return response.text();
+        })
         .then(data => {
+            // Insertar el HTML al principio del body
             document.body.insertAdjacentHTML('afterbegin', data);
-            initializeNavbar();
-            initializeMobileMenu();
-            initializeSearchModal();
-            addDynamicStyles();
-            setProductBrandLogo(); // NUEVO: coloca el logo de la marca del producto
+            
+            // 2. INICIALIZAR FUNCIONES (Una vez que el HTML existe)
+            initMobileMenu();
+            initSearchModal();
+            setProductBrandLogo(); // <--- IMPORTANTE: Carga el logo de la marca
         })
         .catch(error => console.error('Error loading navbar:', error));
 });
 
-function initializeNavbar() {
-    // Menú hamburguesa (versión simplificada que será reemplazada por initializeMobileMenu)
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    if (mobileMenuButton) {
-        const icon = mobileMenuButton.querySelector('i');
-        mobileMenuButton.addEventListener('click', function() {
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
-        });
+/* =========================================
+   A. LÓGICA LOGO DINÁMICO DE MARCA
+   ========================================= */
+function setProductBrandLogo() {
+    // 1. Leer los atributos configurados en la etiqueta <body> de tu HTML
+    const logoSrc = document.body.getAttribute('data-brand-logo');
+    const logoName = document.body.getAttribute('data-brand-name');
+
+    // Si no hay logo definido en el body, no hacemos nada (se queda oculto)
+    if (!logoSrc) return;
+
+    // 2. Referencias a las imágenes en el Navbar (PC y Móvil)
+    const desktopImg = document.getElementById('product-brand-logo-desktop');
+    const mobileImg = document.getElementById('product-brand-logo-mobile');
+
+    // 3. Actualizar Logo PC
+    if (desktopImg) {
+        desktopImg.src = logoSrc;
+        desktopImg.alt = logoName || 'Marca';
+        desktopImg.classList.remove('hidden'); // Hace visible la imagen
+        // Añadir animación suave si está definida en CSS
+        desktopImg.classList.add('brand-fade-in'); 
+    }
+
+    // 4. Actualizar Logo Móvil
+    if (mobileImg) {
+        mobileImg.src = logoSrc;
+        mobileImg.alt = logoName || 'Marca';
+        mobileImg.classList.remove('hidden'); // Hace visible la imagen
+        mobileImg.classList.add('brand-fade-in');
     }
 }
 
-function initializeMobileMenu() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const closeMenuButton = document.getElementById('close-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuOverlay = document.getElementById('menu-overlay');
+/* =========================================
+   B. MENÚ MÓVIL (TIPO DRAWER LATERAL)
+   ========================================= */
+function initMobileMenu() {
+    const btnOpen = document.getElementById('mobile-menu-button');
+    const btnClose = document.getElementById('close-menu');
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('menu-overlay');
 
-    if (!mobileMenuButton || !mobileMenu) return;
+    // Validación de seguridad por si no encuentra elementos
+    if (!btnOpen || !menu || !overlay) return;
 
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.remove('-translate-x-full');
-        mobileMenu.classList.remove('hidden');
-        if (menuOverlay) menuOverlay.classList.remove('hidden');
+    function openMenu() {
+        menu.classList.remove('-translate-x-full'); // Entra el menú
+        overlay.classList.remove('hidden');         // Muestra fondo oscuro
+        document.body.style.overflow = 'hidden';    // Bloquea scroll de la página
+    }
+
+    function closeMenu() {
+        menu.classList.add('-translate-x-full');    // Sale el menú
+        overlay.classList.add('hidden');            // Oculta fondo oscuro
+        document.body.style.overflow = '';          // Restaura scroll
+    }
+
+    // Eventos
+    btnOpen.addEventListener('click', openMenu);
+    btnClose.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+}
+
+/* =========================================
+   C. BUSCADOR MÓVIL (TIPO MODAL)
+   ========================================= */
+function initSearchModal() {
+    const btnOpen = document.getElementById('mobile-search-open');
+    const btnClose = document.getElementById('close-search');
+    const modal = document.getElementById('search-modal');
+    const input = modal ? modal.querySelector('input[name="q"]') : null;
+
+    if (!btnOpen || !modal) return;
+
+    function openSearch() {
+        modal.classList.remove('hidden');
+        // Poner foco en el input con un pequeño retraso para asegurar que es visible
+        setTimeout(() => {
+            if(input) input.focus();
+        }, 100);
         document.body.style.overflow = 'hidden';
-        
-        // Cambiar ícono
-        const icon = mobileMenuButton.querySelector('i');
-        if (icon) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        }
-    });
-
-    if (closeMenuButton) {
-        closeMenuButton.addEventListener('click', closeMobileMenu);
     }
 
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', closeMobileMenu);
-    }
-
-    function closeMobileMenu() {
-        mobileMenu.classList.add('-translate-x-full');
-        if (menuOverlay) menuOverlay.classList.add('hidden');
+    function closeSearch() {
+        modal.classList.add('hidden');
         document.body.style.overflow = '';
-        
-        // Cambiar ícono
-        const icon = mobileMenuButton.querySelector('i');
-        if (icon) {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    }
-}
-
-function initializeSearchModal() {
-    const searchModal = document.getElementById('search-modal');
-    const searchButton = document.getElementById('search-button');               // desktop
-    const mobileSearchButton = document.getElementById('mobile-search-button'); // mobile
-    const closeSearch = document.getElementById('close-search');
-    const searchInput = searchModal ? searchModal.querySelector('input[name="q"]') : null;
-
-    function openSearchModal() {
-        if (!searchModal) return;
-        // Quita hidden y usa flex para centrar el contenido (Tailwind)
-        searchModal.classList.remove('hidden');
-        searchModal.classList.add('open', 'flex');
-        document.body.classList.add('search-open');
-
-        if (searchInput) {
-            setTimeout(() => searchInput.focus(), 100);
-        }
     }
 
-    function closeSearchModal() {
-        if (!searchModal) return;
-        searchModal.classList.add('hidden');
-        searchModal.classList.remove('open', 'flex');
-        document.body.classList.remove('search-open');
-    }
-
-    if (searchButton) searchButton.addEventListener('click', (e) => {
+    // Eventos
+    btnOpen.addEventListener('click', (e) => {
         e.preventDefault();
-        openSearchModal();
+        openSearch();
     });
 
-    if (mobileSearchButton) mobileSearchButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        openSearchModal();
-    });
-
-    if (closeSearch) {
-        closeSearch.addEventListener('click', (e) => {
+    if (btnClose) {
+        btnClose.addEventListener('click', (e) => {
             e.preventDefault();
-            closeSearchModal();
+            closeSearch();
         });
     }
 
-    if (searchModal) {
-        // Cerrar haciendo clic en el fondo oscuro
-        searchModal.addEventListener('click', function(e) {
-            if (e.target === searchModal) {
-                closeSearchModal();
-            }
-        });
-    }
+    // Cerrar si se hace click fuera del formulario (en la zona oscura)
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeSearch();
+    });
 
     // Cerrar con la tecla ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && searchModal && searchModal.classList.contains('open')) {
-            closeSearchModal();
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeSearch();
         }
     });
-}
-
-function addDynamicStyles() {
-    const style = document.createElement('style');
-    style.textContent = `
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-        
-        /* Animación suave de aparición (puedes usarla si quieres en el modal añadiendo la clase anim) */
-        .anim {
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Para compatibilidad con otros usos, pero ya no se usa para el modal nuevo */
-        .none {
-            display: none;
-        }
-        
-        /* Estilos para el menú móvil */
-        .-translate-x-full {
-            transform: translateX(-100%);
-        }
-        
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        #menu-overlay {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        /* Mostrar el modal de búsqueda cuando tenga la clase .open */
-        #search-modal.open {
-            display: block;
-        }
-
-        /* Evitar scroll del body cuando el buscador está abierto */
-        body.search-open {
-            overflow: hidden;
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-/**
- * Coloca el logo de la marca del producto al lado del logo de la empresa
- * Lee los atributos del body:
- *   data-brand-logo="./images/datatronix.png"
- *   data-brand-name="Datatronix"
- */
-function setProductBrandLogo() {
-    const body = document.body;
-    const logoSrc = body.getAttribute('data-brand-logo');
-    const logoAlt = body.getAttribute('data-brand-name') || 'Marca del producto';
-
-    if (!logoSrc) return; // si la página no define marca, no mostramos nada
-
-    const desktopLogo = document.getElementById('product-brand-logo-desktop');
-    const mobileLogo = document.getElementById('product-brand-logo-mobile');
-
-    if (desktopLogo) {
-        desktopLogo.src = logoSrc;
-        desktopLogo.alt = logoAlt;
-        desktopLogo.classList.remove('hidden');
-    }
-
-    if (mobileLogo) {
-        mobileLogo.src = logoSrc;
-        mobileLogo.alt = logoAlt;
-        mobileLogo.classList.remove('hidden');
-    }
 }

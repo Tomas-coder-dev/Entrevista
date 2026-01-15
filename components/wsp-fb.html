@@ -1,0 +1,85 @@
+<section id="faq-whatsapp-section" class="mx-auto mb-10 mt-8 px-4 w-full transition-all duration-500 ease-in-out" style="max-width: 900px;">
+    
+    <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 sm:p-8 shadow-sm mb-8">
+        
+        <div class="mb-4">
+            <h3 class="text-xl font-bold text-blue-800 flex items-center gap-2">
+                <i class="fas fa-question-circle text-2xl"></i>
+                ¿Tienes otra pregunta sobre este producto?
+            </h3>
+            <p class="text-gray-600 text-sm mt-1">
+                Envíanos tu consulta y nuestro equipo técnico te responderá en menos de 24 horas.
+            </p>
+        </div>
+
+        <form id="question-form" class="space-y-4" onsubmit="return false;">
+            
+            <div class="relative group">
+                <textarea 
+                    id="wa-question-input" 
+                    placeholder="Ejemplo: ¿Qué switch PoE recomiendan? ¿Se puede usar en exteriores?..."
+                    rows="3"
+                    class="w-full p-4 text-sm text-gray-700 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition-all resize-none shadow-sm placeholder-gray-400"
+                ></textarea>
+                <div class="absolute bottom-2 right-2">
+                    <span id="wa-char-counter" class="text-[10px] font-semibold text-gray-400 bg-gray-50 px-2 py-1 rounded border border-gray-200">0/500</span>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                
+                <button 
+                    type="button" 
+                    id="btn-wa-specific"
+                    class="flex-1 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 opacity-60 cursor-not-allowed grayscale disabled:transform-none transform hover:-translate-y-0.5"
+                    disabled
+                >
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span>Enviar pregunta por WhatsApp</span>
+                </button>
+                
+                <button 
+                    type="button" 
+                    id="btn-wa-general"
+                    class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+                >
+                    <i class="fas fa-comment-dots text-lg"></i>
+                    <span>Consulta general</span>
+                </button>
+            </div>
+            
+            <p class="text-[11px] text-gray-500 text-center flex items-center justify-center gap-1 mt-3">
+                <i class="fas fa-lock text-gray-400"></i>
+                Al hacer clic en "Enviar", se abrirá WhatsApp con tu mensaje pre-escrito.
+            </p>
+        </form>
+    </div>
+
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 sm:p-8">
+        <div class="text-center mb-6">
+            <h3 class="text-xl font-bold text-blue-800 flex items-center justify-center gap-2">
+                <i class="fab fa-facebook text-blue-600 text-2xl"></i>
+                Comentarios y Opiniones
+            </h3>
+            <p class="text-sm text-gray-500 mt-1">
+                Comparte tu experiencia, haz preguntas o lee lo que otros usuarios comentan.
+            </p>
+        </div>
+        
+        <div class="bg-gray-50 rounded-lg p-2 sm:p-4 border border-gray-100 min-h-[150px]">
+            <div class="fb-comments w-full flex justify-center" 
+                 data-href="https://www.ds3comunicaciones.com" 
+                 data-width="100%" 
+                 data-numposts="5"
+                 data-colorscheme="light">
+            </div>
+        </div>
+        
+        <div class="mt-4 text-center">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 text-[11px] text-blue-600 font-medium border border-blue-100">
+                <i class="fas fa-info-circle"></i> Los comentarios se sincronizan con Facebook
+            </span>
+        </div>
+    </div>
+
+</section>
