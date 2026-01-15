@@ -344,8 +344,6 @@
                        class="w-full h-full object-contain p-4"
                        onerror="this.parentElement.classList.add('hidden')">
                 </button>
-
-                <!-- agrega aquí más imágenes si las tienes -->
               </div>
             </div>
           </section>
@@ -452,6 +450,11 @@
             <div id="tambien-disponible-container"></div>
           </section>
 
+          <!-- PREGUNTAS FRECUENTES + WHATSAPP (COMPONENTE REUTILIZABLE) -->
+          <section class="mt-6">
+            <div id="faq-container"></div>
+          </section>
+
         </div>
 
         <!-- SIDEBAR DERECHA -->
@@ -484,6 +487,11 @@
          onclick="event.stopPropagation()">
   </div>
 
+  <!-- Nombre del producto para el componente de FAQs / WhatsApp -->
+  <script>
+    window.PRODUCT_NAME = 'FC-LT-31-12 - Cable OM3 12 hilos';
+  </script>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       function loadComponent(id, file) {
@@ -500,6 +508,7 @@
       loadComponent("sidebar-precios", "components/sidebar-precios.html");
       loadComponent("footer-container", "components/footer.html");
       loadComponent("tambien-disponible-container", "components/tambien-disponible.html");
+      loadComponent("faq-container", "components/preguntas-frecuentes.html");
 
       const tabProducto = document.getElementById('tab-producto');
       const tabImagenes = document.getElementById('tab-imagenes');
