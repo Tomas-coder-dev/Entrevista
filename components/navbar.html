@@ -1,25 +1,22 @@
 <nav class="bg-white w-full shadow-md border-b text-[13px]">
-  <div class="max-w-screen-2xl mx-auto px-4">
-    <!-- DESKTOP -->
-    <div class="hidden lg:flex items-center justify-between py-2.5 gap-8">
-      <!-- IZQUIERDA: LOGO DS3 -->
+  <div class="max-w-screen-2xl mx-auto px-2 sm:px-4">
+    <div class="hidden lg:flex items-center justify-between py-2 gap-4 xl:gap-8">
       <div class="flex items-center flex-shrink-0">
         <a href="https://www.ds3comunicaciones.com/">
           <img
             src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
             alt="DS3 Comunicaciones"
-            class="h-10 w-auto"
+            class="h-9 w-auto"
           />
         </a>
       </div>
 
-      <!-- CENTRO: BUSCADOR MÁS PEQUEÑO Y BONITO -->
       <div class="flex-1 flex items-center justify-center">
         <form
           name="form1"
           method="get"
           action="https://www.ds3comunicaciones.com/find.html"
-          class="relative flex items-center w-full max-w-xl bg-white rounded-full border border-blue-400 shadow-sm overflow-hidden"
+          class="relative flex items-center w-full max-w-xl xl:max-w-2xl bg-white rounded-full border border-blue-400 shadow-sm overflow-hidden"
           enctype="application/x-www-form-urlencoded"
         >
           <div class="flex items-center px-3 w-full">
@@ -46,13 +43,12 @@
         </form>
       </div>
 
-      <!-- DERECHA: MARCA + CONTACTO -->
       <div class="flex items-center gap-3 flex-shrink-0">
         <a href="#">
           <img
             src="./images/datatronix.png"
             alt="Datatronix"
-            class="h-8 w-auto object-contain"
+            class="h-7 w-auto object-contain"
           />
         </a>
         <div class="flex flex-col text-[12px] text-gray-800 items-end leading-tight">
@@ -81,12 +77,12 @@
       </div>
     </div>
 
-    <!-- MOBILE CABECERA -->
     <div class="lg:hidden flex flex-col gap-1.5 py-2">
       <div class="flex justify-between items-center">
         <div class="flex items-center gap-2 min-w-0">
           <button
             id="mobile-menu-button"
+            type="button"
             class="p-1.5 rounded-full hover:bg-gray-200 transition-colors flex-shrink-0 border border-gray-300"
           >
             <i class="fas fa-bars text-black text-sm"></i>
@@ -105,7 +101,7 @@
                 src="./images/datatronix.png"
                 alt="Datatronix"
                 class="h-8 object-contain flex-shrink"
-                style="max-width: 130px;"
+                style="max-width: 120px;"
               />
             </a>
           </div>
@@ -113,9 +109,10 @@
 
         <button
           id="mobile-search-open"
+          type="button"
           class="p-1.5 rounded-md hover:bg-gray-200 transition-colors border border-gray-400 flex items-center justify-center"
         >
-          <i class="fa-solid fa-magnifying-glass text-black text-sm"></i>
+          <i class="fa-solid fa-magnifying-glass text-black text-sm pointer-events-none"></i>
         </button>
       </div>
 
@@ -149,7 +146,7 @@
   >
     <div class="flex justify-between items-center px-4 pt-4 pb-2 border-b">
       <h2 class="text-sm font-bold text-gray-800">Menú</h2>
-      <button id="close-menu" class="text-gray-500 hover:text-gray-700">
+      <button id="close-menu" type="button" class="text-gray-500 hover:text-gray-700">
         <i class="fas fa-times text-xl"></i>
       </button>
     </div>
@@ -203,6 +200,33 @@
             </ul>
           </div>
         </details>
+      </section>
+
+      <section>
+        <h3 class="text-[13px] font-bold text-gray-900 mb-2">Nuestras Marcas</h3>
+        <div class="h-[2px] bg-blue-500 mb-3"></div>
+        <div class="flex flex-col gap-1.5 text-[13px]">
+          <a href="https://www.ds3comunicaciones.com/alfa/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Alfa</a>
+          <a href="https://www.ds3comunicaciones.com/airlive/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Airlive</a>
+          <a href="https://www.ds3comunicaciones.com/andrew/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Andrew</a>
+          <a href="https://www.ds3comunicaciones.com/AMP/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">AMP</a>
+          <a href="https://www.ds3comunicaciones.com/amphenol/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Amphenol</a>
+          <a href="https://www.ds3comunicaciones.com/belden/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Belden</a>
+          <a href="https://www.ds3comunicaciones.com/cisco/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Cisco</a>
+          <a href="https://www.ds3comunicaciones.com/dahua/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Dahua</a>
+          <a href="https://www.ds3comunicaciones.com/dlink/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">D-Link</a>
+          <a href="https://www.ds3comunicaciones.com/dixon/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Dixon</a>
+          <a href="https://www.ds3comunicaciones.com/FibreFab/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">FibreFab</a>
+          <a href="https://www.ds3comunicaciones.com/lanpro/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">LanPro</a>
+          <a href="https://www.ds3comunicaciones.com/l-com/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">L-Com</a>
+          <a href="https://www.ds3comunicaciones.com/mikrotik/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">MikroTik</a>
+          <a href="https://www.ds3comunicaciones.com/panduit/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Panduit</a>
+          <a href="https://www.ds3comunicaciones.com/satra/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Satra</a>
+          <a href="https://www.ds3comunicaciones.com/siemon/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Siemon</a>
+          <a href="https://www.ds3comunicaciones.com/tplink/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">TP-Link</a>
+          <a href="https://www.ds3comunicaciones.com/trendnet/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Trendnet</a>
+          <a href="https://www.ds3comunicaciones.com/ubiquiti/" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-blue-600">Ubiquiti</a>
+        </div>
       </section>
 
       <section class="pb-3">
@@ -294,6 +318,7 @@
     <div class="flex flex-col items-center gap-2">
       <button
         id="close-search"
+        type="button"
         class="cursor-pointer text-white text-xl flex items-center justify-center w-[34px] h-[34px] rounded-full font-medium hover:bg-gray-700 transition-colors border border-white/60"
       >
         <i class="fa-solid fa-xmark"></i>
@@ -307,37 +332,38 @@
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMenu = document.getElementById('close-menu');
-    const menuOverlay = document.getElementById('menu-overlay');
+  (function () {
+    var mobileMenuButton = document.getElementById('mobile-menu-button');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var closeMenu = document.getElementById('close-menu');
+    var menuOverlay = document.getElementById('menu-overlay');
+    var searchModal = document.getElementById('search-modal');
+    var closeSearch = document.getElementById('close-search');
+    var mobileSearchOpen = document.getElementById('mobile-search-open');
 
     function openMenu() {
+      if (!mobileMenu || !menuOverlay) return;
       mobileMenu.classList.remove('-translate-x-full');
       menuOverlay.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
 
     function closeMenuFn() {
+      if (!mobileMenu || !menuOverlay) return;
       mobileMenu.classList.add('-translate-x-full');
       menuOverlay.classList.add('hidden');
       document.body.style.overflow = '';
     }
 
-    if (mobileMenuButton) mobileMenuButton.addEventListener('click', openMenu);
-    if (closeMenu) closeMenu.addEventListener('click', closeMenuFn);
-    if (menuOverlay) menuOverlay.addEventListener('click', closeMenuFn);
-
-    const searchModal = document.getElementById('search-modal');
-    const closeSearch = document.getElementById('close-search');
-    const mobileSearchOpen = document.getElementById('mobile-search-open');
-
     function openSearch() {
       if (!searchModal) return;
       searchModal.classList.remove('hidden');
-      const input = searchModal.querySelector('input[name="q"]');
-      if (input) setTimeout(() => input.focus(), 40);
+      var input = searchModal.querySelector('input[name="q"]');
+      if (input) {
+        setTimeout(function () {
+          input.focus();
+        }, 40);
+      }
       document.body.style.overflow = 'hidden';
     }
 
@@ -347,12 +373,39 @@
       document.body.style.overflow = '';
     }
 
-    if (mobileSearchOpen) mobileSearchOpen.addEventListener('click', openSearch);
-    if (closeSearch) closeSearch.addEventListener('click', closeSearchModal);
-    if (searchModal) {
-      searchModal.addEventListener('click', (e) => {
-        if (e.target === searchModal) closeSearchModal();
-      });
+    if (mobileMenuButton) {
+      mobileMenuButton.onclick = openMenu;
     }
-  });
+    if (closeMenu) {
+      closeMenu.onclick = closeMenuFn;
+    }
+    if (menuOverlay) {
+      menuOverlay.onclick = function () {
+        closeMenuFn();
+        closeSearchModal();
+      };
+    }
+
+    if (mobileSearchOpen) {
+      mobileSearchOpen.onclick = function (e) {
+        e.preventDefault();
+        openSearch();
+      };
+    }
+
+    if (closeSearch) {
+      closeSearch.onclick = function (e) {
+        e.preventDefault();
+        closeSearchModal();
+      };
+    }
+
+    if (searchModal) {
+      searchModal.onclick = function (e) {
+        if (e.target === searchModal) {
+          closeSearchModal();
+        }
+      };
+    }
+  })();
 </script>
